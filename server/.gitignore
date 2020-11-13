@@ -1,0 +1,14 @@
+*.pyc
+build
+__pycache__/
+.idea/
+config.py
+.vscode/
+/venv
+venv
+venv/**
+venv/
+/env
+env
+env/**
+env/

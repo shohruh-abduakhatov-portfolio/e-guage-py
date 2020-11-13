@@ -1,0 +1,531 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Guage</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a href="#"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div id="echart_guage" style="height:370px;"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12" style="height:370px;">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Historical Data
+                        <small>2 days interval</small>
+                    </h2>
+                    <div class="filter">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" name="datefilter" class="form-control"
+                                       id="exampleInputEmail1"
+                                       aria-describedby="emailHelp" placeholder="Select Date">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="demo-container">
+                            <div id="placeholder33x" class="demo-placeholder" style="width: 100%; height:355px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- date range -->
+    <!-- /date range -->
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Gauge Details </h2>
+                    {#<a href="/user/create" class="btn btn-info btn-sm"><i class="fa fa-plus"></i>Add</a></h2>#}
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table id="users_datatables" class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Gauge Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>water_temp_1</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>3.1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>water_pres_1</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>3.5</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>gas_pres_1</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>1.2</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>water_temp_2</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>5.7</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>water_temp_3</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>8.0</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>water_pres_2</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>3.0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>gas_pres_1</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>3.2</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>water_temp_4</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>water_temp_5</td>
+                            <td>04/15/2019</td>
+                            <td>15:21:30</td>
+                            <td>5.5</td>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#    <script>#}
+    {#        window.addEventListener("load", function (event) {#}
+    {#            $('#users_datatables').dataTable({#}
+    {#                "processing": true,#}
+    {#                "serverSide": true,#}
+    {#                "ordering": false,#}
+    {#                "columns": [#}
+    {#                    {"data": "fullName"},#}
+    {#                    {"data": "username"},#}
+    {#                    {"data": "email"},#}
+    {#                    {"data": "active"},#}
+    {#                    {"data": "lastUpdate"},#}
+    {#                    {#}
+    {#                        "data": "action", "render": function (data, type, row) {#}
+    {#                            return "<a href='/user/create?id=" + row.identifier + "' class='btn btn-success btn-xs'>Edit</a>" +#}
+    {#                                "&nbsp;<a href='/user/view?id=" + row.identifier + "' class='btn btn btn-primary btn-xs'>View</a>"#}
+    {#"&nbsp<a href='javascript: void(0)' onclick='activateUser(\""+row.identifier+"\","+row.active+")' class='btn btn-danger btn-xs'>Delete</a>";#}
+    {#                        }#}
+    {#                    }#}
+    {#                ],#}
+    {#                "ajax": {#}
+    {#                    "url": "{% url 'users_list_json' %}",#}
+    {#                    "type": "POST",#}
+    {#                    "contentType": "application/json; chartset=utf-8",#}
+    {#                    "dataType": 'json',#}
+    {#                    "headers": {#}
+    {#                        'Content-Type': 'application/json', /*or whatever type is relevant */#}
+    {#                        'Accept': 'application/json', /* ditto */#}
+    {#                        'X-CSRFToken': getCookie("csrftoken")#}
+    {#                    },#}
+    {#                    "data": function (json) {#}
+    {#                        return JSON.stringify(json);#}
+    {#                    }#}
+    {#                },#}
+    {#            });#}
+    {##}
+    {#            $('#users_datatables_filter').hide();#}
+    {##}
+    {##}
+    {#            window.activateUser = function (userId, active) {#}
+    {#                var is_action = confirm("Are you sure do you want remove this user?");#}
+    {#                if (is_action) {#}
+    {#                    $.ajax({#}
+    {#                        type: "POST",#}
+    {#                        url: '{% url 'users_activate_json' %}',#}
+    {#                        headers: {#}
+    {#                            'Content-Type': 'application/json',#}
+    {#                            'Accept': 'application/json',#}
+    {#                            'X-CSRFToken': getCookie("csrftoken")#}
+    {#                        },#}
+    {#                        data: JSON.stringify({userId: userId, active: !active}),#}
+    {#                        traditional: true,#}
+    {#                        success: function (data) {#}
+    {#                            $('#users_datatables').DataTable().ajax.reload();#}
+    {#                        },#}
+    {#                        error: function (jqXHR, textStatus, errorThrown) {#}
+    {#                            alert('Internal Server Error!')#}
+    {#                        }#}
+    {#                    });#}
+    {#                }#}
+    {#            }#}
+    {#        });#}
+    {#    </script>#}
+
+    {#    Gauge Container section #}
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/progressbar/bootstrap-progressbar.min.js" %}"></script>
+    <script src="{% static "js/nicescroll/jquery.nicescroll.min.js" %}"></script>
+    <script src="{% static "js/icheck/icheck.min.js" %}"></script>
+    <script src="{% static "js/custom.js" %}"></script>
+
+    <!-- echart -->
+    <script src="{% static "js/echart/echarts-all.js" %}"></script>
+    <script src="{% static "js/echart/green.js" %}"></script>
+
+    <!-- moris js -->
+    <script src="{% static "js/moris/raphael-min.js" %}"></script>
+    <script src="{% static "js/moris/morris.min.js" %}"></script>
+    <script src="{% static "js/moris/example.js" %}"></script>
+
+    {#    grapgh#}
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/nicescroll/jquery.nicescroll.min.js" %}"></script>
+    <!-- bootstrap progress js -->
+    <script src="{% static "js/progressbar/bootstrap-progressbar.min.js" %}"></script>
+    <!-- icheck -->
+    <script src="{% static "js/icheck/icheck.min.js" %}"></script>
+    <!-- daterangepicker -->
+    <script type="text/javascript" src="{% static "js/moment/moment.min.js" %}"></script>
+    <script type=" text/javascript" src="{% static "js/datepicker/daterangepicker.js" %}"></script>
+    <!-- chart js -->
+    <script src="{% static "js/chartjs/chart.min.js" %}"></script>
+    <!-- sparkline -->
+    <script src="{% static "js/sparkline/jquery.sparkline.min.js" %}"></script>
+    <script src="{% static "js/custom.js" %}"></script>
+    <!-- flot js -->
+    <!--[if lte IE 8]><script type=" text/javascript" src="{% static "js/excanvas.min.js" %}"></script><![endif]-->
+    <script type="text/javascript" src="{% static "js/flot/jquery.flot.js" %}"></script>
+    <script type=" text/javascript" src="{% static "js/flot/jquery.flot.pie.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/flot/jquery.flot.orderBars.js" %}"></script>
+    <script type=" text/javascript" src="{% static "js/flot/jquery.flot.time.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/flot/date.js" %}"></script>
+    <script type=" text/javascript" src="{% static "js/flot/jquery.flot.spline.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/flot/jquery.flot.stack.js" %}"></script>
+    <script type=" text/javascript" src="{% static "js/flot/curvedLines.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/flot/jquery.flot.resize.js" %}"></script>
+    <script src="{% static "js/pace/pace.min.js" %}"></script>
+
+
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/nicescroll/jquery.nicescroll.min.js" %}"></script>
+
+    <!-- daterangepicker -->
+    <script type="text/javascript" src="{% static "js/moment/moment.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/datepicker/daterangepicker.js" %}"></script>
+    <!-- chart js -->
+
+    <script src="{% static "js/custom.js" %}"></script>
+
+    <!-- flot js -->
+    <script type="text/javascript" src="{% static "js/flot/jquery.flot.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/flot/jquery.flot.time.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/flot/date.js" %}"></script>
+    <!-- pace -->
+
+
+
+    <script>
+        var myChart = echarts.init(document.getElementById('echart_guage'), theme);
+
+        myChart.setOption({
+            tooltip: {
+                formatter: "{a} <br/>{b} : {c}%"
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            series: [{
+                name: 'Performance',
+                type: 'gauge',
+                center: ['50%', '50%'],
+                radius: [0, '75%'],
+                startAngle: 140,
+                endAngle: -140,
+                min: 0,
+                max: 100,
+                precision: 0,
+                splitNumber: 10,
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: [
+                            [0.2, 'lightgreen'],
+                            [0.4, 'orange'],
+                            [0.8, 'skyblue'],
+                            [1, '#ff4500']
+                        ],
+                        width: 30
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    splitNumber: 5,
+                    length: 8,
+                    lineStyle: {
+                        color: '#eee',
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    formatter: function (v) {
+                        switch (v + '') {
+                            case '10':
+                                return '3.0';
+                            case '30':
+                                return '6.0';
+                            case '60':
+                                return '9.0';
+                            case '90':
+                                return '15.0';
+                            default:
+                                return '';
+                        }
+                    },
+                    textStyle: {
+                        color: '#333'
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    length: 30,
+                    lineStyle: {
+                        color: '#eee',
+                        width: 2,
+                        type: 'solid'
+                    }
+                },
+                pointer: {
+                    length: '80%',
+                    width: 8,
+                    color: 'auto'
+                },
+                title: {
+                    show: true,
+                    offsetCenter: ['-65%', -10],
+                    textStyle: {
+                        color: '#333',
+                        fontSize: 15
+                    }
+                },
+                detail: {
+                    show: true,
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    borderWidth: 0,
+                    borderColor: '#ccc',
+                    width: 100,
+                    height: 40,
+                    offsetCenter: ['-60%', 10],
+                    formatter: '{value}%',
+                    textStyle: {
+                        color: 'auto',
+                        fontSize: 30
+                    }
+                },
+                data: [{
+                    value: 50,
+                    name: 'Performance'
+                }]
+            }]
+        });
+    </script>
+    <!-- flot -->
+    <script type="text/javascript">
+        //define chart clolors ( you maybe add more colors if you want or flot will add it automatic )
+        var chartColours = ['#96CA59', '#3F97EB', '#72c380', '#6f7a8a', '#f7cb38', '#5a8022', '#2c7282'];
+
+        //generate random number for charts
+        randNum = function () {
+            return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
+        }
+
+        $(function () {
+            var d1 = [];
+            var d2 = [];
+            var d3 = [];
+
+            //here we generate data for chart
+            for (var i = 0; i < 30; i++) {
+                d1.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
+                d2.push([new Date(Date.today().add(i).days()).getTime(), randNum()+ i + i + 10]);
+                d3.push([new Date(Date.today().add(i).days()).getTime(), randNum()]);
+            }
+
+            var chartMinDate = d1[0][0]; //first day
+            var chartMaxDate = d1[20][0]; //last day
+
+            var tickSize = [1, "day"];
+            var tformat = "%d/%m/%y";
+
+            //graph options
+            var options = {
+                grid: {
+                    show: true,
+                    aboveData: true,
+                    color: "#3f3f3f",
+                    labelMargin: 10,
+                    axisMargin: 0,
+                    borderWidth: 0,
+                    borderColor: null,
+                    minBorderMargin: 5,
+                    clickable: true,
+                    hoverable: true,
+                    autoHighlight: true,
+                    mouseActiveRadius: 100
+                },
+                series: {
+                    lines: {
+                        show: true,
+                        fill: true,
+                        lineWidth: 2,
+                        steps: false
+                    },
+                    points: {
+                        show: true,
+                        radius: 4.5,
+                        symbol: "circle",
+                        lineWidth: 3.0
+                    }
+                },
+                legend: {
+                    position: "ne",
+                    margin: [0, -25],
+                    noColumns: 0,
+                    labelBoxBorderColor: null,
+                    labelFormatter: function (label, series) {
+                        // just add some space to labes
+                        return label + '&nbsp;&nbsp;';
+                    },
+                    width: 40,
+                    height: 1
+                },
+                colors: chartColours,
+                shadowSize: 0,
+                tooltip: true, //activate tooltip
+                tooltipOpts: {
+                    content: "%s: %y.0",
+                    xDateFormat: "%d/%m",
+                    shifts: {
+                        x: -30,
+                        y: -50
+                    },
+                    defaultTheme: false
+                },
+                yaxis: {
+                    min: 0
+                },
+                xaxis: {
+                    mode: "time",
+                    minTickSize: tickSize,
+                    timeformat: tformat,
+                    min: chartMinDate,
+                    max: chartMaxDate
+                }
+            };
+            var plot = $.plot($("#placeholder33x"), [{
+                label: "Water Temperature",
+                data: d1,
+                lines: {
+                    fillColor: "rgba(150, 202, 89, 0.12)"
+                }, //#96CA59 rgba(150, 202, 89, 0.42)
+                points: {
+                    fillColor: "#fff"
+                }
+            }, {
+                label: "Gas Pressure",
+                data: d2,
+                lines: {
+                    fillColor: "rgba(32,155,202,0.12)"
+                }, //#96CA59 rgba(150, 202, 89, 0.42)
+                points: {
+                    fillColor: "#fff"
+                }
+            }, {
+                label: "Water Pressure",
+                data: d3,
+                lines: {
+                    fillColor: "rgba(198,53,202,0.12)"
+                }, //#96CA59 rgba(150, 202, 89, 0.42)
+                points: {
+                    fillColor: "#fff"
+                }
+            }], options);
+        });
+    </script>
+    <!-- /flot -->
+    <!-- datepicker -->
+    <script type="text/javascript">
+        $(function () {
+
+            $('input[name="datefilter"]').daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: 'Clear'
+                }
+            });
+
+            $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+                $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+            });
+
+            $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+                $(this).val('');
+            });
+
+        });
+    </script>
+    <!-- /datepicker -->
+{% endblock %}

@@ -1,0 +1,39 @@
+{#{% extends "base.html" %}#}
+{#{% block content %}#}
+{#    <div class="row">#}
+{#        <div class="col-md-6 col-xs-12">#}
+{#            <div class="x_panel">#}
+{#                <div class="x_title">#}
+{#                    <h2>User view form</h2>#}
+{#                    <div class="clearfix"></div>#}
+{#                </div>#}
+{#                <div class="x_content">#}
+{#                    <!-- start form for validation -->#}
+{#                    <form id="demo-form" action="/user/create" method="post">#}
+{#                        {{ form.non_field_errors }}#}
+{#                        <div class="form-group">#}
+{#                            <label>Full Name:</label>#}
+{#                            <label class="form-control">{{ userData.fullName }}</label>#}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                            <label>Email:</label>#}
+{#                            <label class="form-control">{{ userData.email }}</label>#}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                            <label>Username:</label>#}
+{#                            <label class="form-control">{{ userData.username }}</label>#}
+{#                        </div>#}
+{#                        {% csrf_token %}#}
+{#                        <div class="ln_solid"></div>#}
+{#                        <div class="form-group">#}
+{#                            <div class="col-sm-12">#}
+{#                                <a href="/user" class="btn btn-primary pull-left">Cancel</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </form>#}
+{#                    <!-- end form for validations -->#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
